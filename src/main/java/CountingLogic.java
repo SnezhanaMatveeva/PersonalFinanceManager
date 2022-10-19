@@ -15,6 +15,14 @@ public class CountingLogic {
             int sum = maxCategory.get(category);
             int newSum = sum + purchase.getSum();
             maxCategory.put(category, newSum);
+        } else if (category == null) {
+            if (maxCategory.containsKey("другое")) {
+                int sum = maxCategory.get("другое");
+                int newSum = sum + purchase.getSum();
+                maxCategory.put("другое", newSum);
+            } else {
+                maxCategory.put("другое", purchase.getSum());
+            }
         } else {
             maxCategory.put(category, purchase.getSum());
         }
